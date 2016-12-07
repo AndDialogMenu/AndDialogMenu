@@ -4,7 +4,10 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -24,27 +27,18 @@ public class MainActivity extends AppCompatActivity {
         // Set the dialog title
         builder.setTitle(R.string.dialog_title);
 
-        // Specify the list array, the items to be selected by default (null for none),
-        // and the listener through which to receive callbacks when items are selected
-        builder.setMultiChoiceItems(R.array.choices, null,
-                new DialogInterface.OnMultiChoiceClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which,
-                                        boolean isChecked) {
-                        if (isChecked) {
-                            // If the user checked the item, add it to the selected items
-                            mSelectedItems.add(which);
-                        } else if (mSelectedItems.contains(which)) {
-                            // Else, if the item is already in the array, remove it
-                            mSelectedItems.remove(Integer.valueOf(which));
-                        }
-                    }
-                });
+        builder.setMessage("Enter password:");
 
-
+        final EditText passwordEditText = new EditText(MainActivity.this);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        passwordEditText.setLayoutParams(lp);
+        passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        builder.setView(passwordEditText);
 
         // Set the action buttons
-        builder.setPositiveButton(R.string.action_button_2, new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.action_button_ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 // User clicked OK, so save the mSelectedItems results somewhere
@@ -52,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        builder.setNegativeButton(R.string.action_button_1, new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.action_button_cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
             }
