@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Dialogs</string>
-    <string name="cancel">Cancel</string>
-    <string name="ok">OK</string>
-    <string name="dialog_text">Text</string>
+    <string name="action_button_1">Action Button 1</string>
+    <string name="action_button_2">Action Button 2</string>
+    <string name="dialog_title">Dialog Title</string>
+
+    <string-array name="choices">
+        <item>Content 1</item>
+        <item>Content 2</item>
+        <item>Content 3</item>
+        <item>Content 4</item>
+    </string-array>
 </resources>

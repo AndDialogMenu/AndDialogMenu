@@ -13,7 +13,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DialogFragment"
+        android:text="Multiple-Choice List"
         android:id="@+id/textView"
         android:textSize="35dp"
         android:layout_alignParentTop="true"
